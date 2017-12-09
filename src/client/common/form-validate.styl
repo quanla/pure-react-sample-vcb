@@ -1,0 +1,21 @@
+&.show-errors .form-group, .form-group.lf-dirty.lf-blurred {
+
+  &.lf-invalid {
+    .control-label, .form-control-feedback, .help-block {
+      color: #a94442;
+    }
+
+    .form-control {
+      border-color #a94442;
+    }
+  }
+}
+
+&.show-errors .form-control.lf-invalid, .form-control.lf-invalid.lf-dirty.lf-blurred {
+  border-color #a94442;
+}
+
+
+.has-feedback label~.form-control-feedback.fa {
+  line-height: 35px;
+}
