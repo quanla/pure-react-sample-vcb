@@ -2,6 +2,7 @@ import classnames from "classnames";
 import {RComponent} from "../../../common/r-component";
 import {captcha} from "./validate-captcha";
 import {authenApi} from "../../../api/authen-api";
+import {userInfo} from "../../authen/user-info";
 const {bindDom, bindCom} = RlfDemo.RLF;
 const {required, minLength, maxLength} = RlfDemo.RLF.validates;
 
@@ -35,6 +36,7 @@ export class LoginRoute extends RComponent {
     }
 
     async submit() {
+        const {history} = this.props;
 
         this.setState({loading: true});
 
@@ -43,6 +45,8 @@ export class LoginRoute extends RComponent {
             this.setState({error: resp.result, loading: false});
         } else {
             // resp.token
+            userInfo.setUser(resp.user);
+            history.push("/home")
         }
     }
 

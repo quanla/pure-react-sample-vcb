@@ -7,7 +7,7 @@ const authenApi = {
                 resolve(
                     captcha.toLowerCase() != "4e180" ? {
                         result: "wrong_captcha"
-                    } : (acc_no == "123" && password == "123") ? {
+                    } : (acc_no != "123" || password != "123") ? {
                         result: "wrong_login"
                     } : {
                         result: "success",
