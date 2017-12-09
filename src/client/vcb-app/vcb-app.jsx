@@ -5,6 +5,7 @@ import {userInfo} from "./authen/user-info";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {LoginRoute} from "./routes/login/login-route";
 import {HomeRoute} from "./routes/home/home-route";
+import {AccountListRoute} from "./routes/account-list/account-list-route";
 
 export class VcbApp extends RComponent {
 
@@ -31,6 +32,7 @@ const renderRoutes = (user) => (
         <Switch>
             <Route exact path='/' component={LoginRoute}/>
             <Route exact path="/home" component={HomeRoute}/>
+            <Route exact path="/account-list" component={AccountListRoute}/>
         </Switch>
     </BrowserRouter>
 );

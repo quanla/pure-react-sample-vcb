@@ -227,7 +227,7 @@ function indexOf(col, find) {
     }
     for (let i = 0; i < col.length; i++) {
         let e = col[i];
-        if (find(e)) {
+        if (find(e, i)) {
             return i;
         }
     }
