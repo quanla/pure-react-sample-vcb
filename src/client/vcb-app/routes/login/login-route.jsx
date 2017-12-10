@@ -44,7 +44,6 @@ export class LoginRoute extends RComponent {
         if (resp.result != "success") {
             this.setState({error: resp.result, loading: false});
         } else {
-            // resp.token
             userInfo.setUser(resp.user);
             history.push("/home")
         }

@@ -5,7 +5,5 @@ module.exports = {
     {"dir": "src/server/public", "as": "/"},
   ],
   "indexServingPaths": [
-      "/home",
-      "/account-list",
   ],
 };

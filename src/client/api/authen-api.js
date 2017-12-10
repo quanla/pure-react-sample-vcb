@@ -11,7 +11,10 @@ const authenApi = {
                         result: "wrong_login"
                     } : {
                         result: "success",
-                        token: "fewgwegweg"
+                        token: "fewgwegweg",
+                        user: {
+                            name: "Le Anh Quan",
+                        },
                     }
                 )
             }, 600);
