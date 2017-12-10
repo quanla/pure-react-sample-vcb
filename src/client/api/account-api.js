@@ -2,7 +2,7 @@
 
 const accountApi = {
     getAccounts(types) {
-        console.log(types);
+        // console.log(types);
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(types[0] == "D" ? [
