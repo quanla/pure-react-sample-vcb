@@ -39,7 +39,7 @@ export class AccountDetailsRoute extends RComponent {
 
                 <div className="box">
                     <div className="header">
-                        <img src="/assets/img/icon-thongtinnguoichuyen.png" />
+                        <img src="assets/img/icon-thongtinnguoichuyen.png" />
                         Chi tiết giao dịch
                     </div>
                 </div>

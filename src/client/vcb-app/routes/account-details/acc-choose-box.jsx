@@ -20,7 +20,7 @@ export class AccountChooseBox extends RComponent {
         return (
             <div className="box">
                 <div className="header">
-                    <img src="/assets/img/icon-thongtinnguoichuyen.png" />
+                    <img src="assets/img/icon-thongtinnguoichuyen.png" />
                     Tài khoản nguồn
                 </div>
 

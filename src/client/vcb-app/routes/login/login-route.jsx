@@ -59,7 +59,7 @@ export class LoginRoute extends RComponent {
                  onKeyDown={(e) => e.keyCode == 13 && checkSubmit()}
             >
                 <div className="logo box">
-                    <img src="/assets/img/logo-login.gif"/>
+                    <img src="assets/img/logo-login.gif"/>
                 </div>
 
                 <div className="box-login box">
@@ -105,8 +105,8 @@ export class LoginRoute extends RComponent {
                             autoComplete="off"
                         />
                         <div className="img-controls">
-                            <img className="captcha" src="/assets/img/captcha.png"/>
-                            <img className="refresh" src="/assets/img/refresh-icon.png"/>
+                            <img className="captcha" src="assets/img/captcha.png"/>
+                            <img className="refresh" src="assets/img/refresh-icon.png"/>
                         </div>
                     </div>
                     <div className="controls">

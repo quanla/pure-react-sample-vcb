@@ -41,7 +41,7 @@ export class AccountDetailsBox extends RComponent {
 
             <div className="box account-details-box">
                 <div className="header">
-                    <img src="/assets/img/icon-thongtinnguoichuyen.png" />
+                    <img src="assets/img/icon-thongtinnguoichuyen.png" />
                     Tiền gửi thanh toán
                 </div>
 
