@@ -20,25 +20,27 @@ export class Select extends RComponent {
         let selectedIndex = Cols.indexOf(list, isSelected);
 
         return (
-            <select
-                className={classnames(className)}
-                disabled={disabled}
-                value={selectedIndex}
-                onChange={(e) => {
-                    let newIndex = +e.target.value;
-                    onChange(list[newIndex], newIndex);
-                }}
-            >
+            <div className="select-wrapper">
+                <select
+                    className={classnames(className)}
+                    disabled={disabled}
+                    value={selectedIndex}
+                    onChange={(e) => {
+                        let newIndex = +e.target.value;
+                        onChange(list[newIndex], newIndex);
+                    }}
+                >
 
-                { list && list.map((item, index) => (
-                    <option
-                        key={index}
-                        value={index}
-                    >
-                        { displayAs(item) }
-                    </option>
-                )) }
-            </select>
+                    { list && list.map((item, index) => (
+                        <option
+                            key={index}
+                            value={index}
+                        >
+                            { displayAs(item) }
+                        </option>
+                    )) }
+                </select>
+            </div>
         )
     }
 

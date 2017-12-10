@@ -4,6 +4,7 @@ import {Layout} from "../layout/layout";
 import {Select} from "../../../common/select";
 import {Fragment} from "react";
 import {accountApi} from "../../../api/account-api";
+import {Format} from "../../../common/format";
 
 export class AccountListRoute extends RComponent {
     constructor(props, context) {
@@ -33,7 +34,10 @@ export class AccountListRoute extends RComponent {
                     displayAs={(item) => item.label}
                 />
 
-                <SelectAccount key={selected} types={accountTypes[selected].types}/>
+                <SelectAccount
+                    key={selected} types={accountTypes[selected].types}
+                    onChooseAccount={(acc) => console.log(acc.acc_no)}
+                />
             </Layout>
         );
     }
@@ -45,12 +49,12 @@ class SelectAccount extends RComponent {
 
         this.state = {
             accounts: null,
-            selected: 0,
+            selected: null,
         };
 
         (async ()=> {
             let accounts = await accountApi.getAccounts(props.types);
-            this.setState({accounts});
+            this.setState({accounts, selected: accounts.length ? 0 : null});
         })()
     }
 
@@ -65,8 +69,20 @@ class SelectAccount extends RComponent {
                     displayAs={(item) => item.acc_no}
                 />
 
-                <div className="">
-                    Số dư: {accounts && !!accounts.length && accounts[selected].balance}
+                <div className="balance">
+                    <span>Số dư hiện tại: </span>
+                    <div className="amount">
+                        {accounts && !!accounts.length && selected != null && Format.money(accounts[selected].balance)}
+                    </div>
+                </div>
+
+                <div className="controls">
+                    <button
+                        disabled={selected == null}
+                        onClick={() => onChooseAccount(accounts[selected])}
+                    >
+                        Xem chi tiết
+                    </button>
                 </div>
             </Fragment>
         );
