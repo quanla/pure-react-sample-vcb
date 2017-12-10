@@ -1,6 +1,6 @@
-**Demo**: (mobile view only) https://quanla.github.io/pure-react-sample-coffee-pages/
+**Demo**: (mobile view only) https://quanla.github.io/pure-react-sample-vcb-pages/
 
-This sample take design and idea from this real product: https://order.thecoffeehouse.com/m/
+This sample take design and idea from this real product: https://www.vietcombank.com.vn/IBanking2015/
 
 Further discussion to be posted on this FB group: Pure React ( https://www.facebook.com/groups/purereact/ )
 
@@ -11,7 +11,4 @@ Further discussion to be posted on this FB group: Pure React ( https://www.faceb
  3. npm start (start server)
  4. Go to http://localhost:1221/
 
-The location step, which has Google Maps, is just a mock up, I don't have Google key to run real map.
-
-Some styling may not be done, it is tedious job, and I am bored now.
 
