@@ -8,7 +8,10 @@ export class HomeRoute extends RComponent {
     render() {
         const {history} = this.props;
         return (
-            <Layout className="home-route">
+            <Layout
+                className="home-route"
+                history={history}
+            >
                 <div className="welcome">
                     Xin chào Quý khách
                     {" "}

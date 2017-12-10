@@ -15,6 +15,7 @@ export class AccountListRoute extends RComponent {
         };
     }
     render() {
+        const {history} = this.props;
         const {selected} = this.state;
         const accountTypes = [
             {types: ["D"], label: "Tiền gửi thanh toán"},
@@ -26,6 +27,7 @@ export class AccountListRoute extends RComponent {
             <Layout
                 className="account-list-route"
                 headerText="Danh sách tài khoản"
+                history={history}
             >
                 <Select
                     list={accountTypes}
@@ -36,7 +38,7 @@ export class AccountListRoute extends RComponent {
 
                 <SelectAccount
                     key={selected} types={accountTypes[selected].types}
-                    onChooseAccount={(acc) => console.log(acc.acc_no)}
+                    onChooseAccount={(acc) => history.push(`/account-details/${acc.acc_no}`)}
                 />
             </Layout>
         );
@@ -59,7 +61,9 @@ class SelectAccount extends RComponent {
     }
 
     render() {
+        const {onChooseAccount} = this.props;
         const {accounts, selected} = this.state;
+
         return (
             <Fragment>
                 <Select
