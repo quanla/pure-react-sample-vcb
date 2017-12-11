@@ -5,7 +5,7 @@ const authenApi = {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(
-                    captcha.toLowerCase() != "4e180" ? {
+                    captcha.toLowerCase() != "4e180" && captcha.toLowerCase() != "12323" ? {
                         result: "wrong_captcha"
                     } : (acc_no != "123" || password != "123") ? {
                         result: "wrong_login"

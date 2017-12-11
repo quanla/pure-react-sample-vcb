@@ -24,7 +24,7 @@
     "gulp-inject": "^4.3.0",
     "gulp-sort": "^2.0.0",
     "gulp-stylus": "^2.6.0",
-    "react-addons-css-transition-group": "^15.6.2"
+    "react-transition-group": "2.2.1"
   },
   "devDependencies": {
     "archiver": "^2.1.0",

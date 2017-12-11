@@ -28,6 +28,26 @@ export class AccQueryResultBox extends RComponent {
                                 {transaction}
                             </div>
                         ))}
+                        {transactions.map((transaction) => (
+                            <div className="">
+                                {transaction}
+                            </div>
+                        ))}
+                        {transactions.map((transaction) => (
+                            <div className="">
+                                {transaction}
+                            </div>
+                        ))}
+                        {transactions.map((transaction) => (
+                            <div className="">
+                                {transaction}
+                            </div>
+                        ))}
+                        {transactions.map((transaction) => (
+                            <div className="">
+                                {transaction}
+                            </div>
+                        ))}
                     </div>
                 )}
             </div>

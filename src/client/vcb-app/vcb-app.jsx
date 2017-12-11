@@ -1,6 +1,5 @@
 import classnames from "classnames";
 import {RComponent} from "../common/r-component";
-import {ModalRegistry} from "../common/modal/modal-registry";
 import {userInfo} from "./authen/user-info";
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import {LoginRoute} from "./routes/login/login-route";
@@ -22,7 +21,6 @@ export class VcbApp extends RComponent {
 
                 {renderRoutes(userInfo.getUser())}
 
-                <ModalRegistry/>
             </div>
         );
     }

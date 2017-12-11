@@ -1,5 +1,7 @@
 import classnames from "classnames";
 import {RComponent} from "../../../common/r-component";
+import {DualNavLayout} from "./dual-nav-layout";
+import {userInfo} from "../../authen/user-info";
 
 export class Layout extends RComponent {
 
@@ -7,11 +9,11 @@ export class Layout extends RComponent {
         const {children, className, headerText} = this.props;
 
         return (
-            <div className={`layout`}>
-                <div className="header">
-                    <img className="left-toggle" src="assets/img/icon-left.png"/>
-
-                    {headerText ? (
+            <DualNavLayout
+                className="vcb-layout"
+                contentClassName={className}
+                header={
+                    headerText ? (
                         <div className="text">
                             {headerText}
                         </div>
@@ -19,15 +21,25 @@ export class Layout extends RComponent {
                         <div className="default-content">
                             <img src="assets/img/logo-login.gif"/>
                         </div>
-                    )}
-
-                    <img className="right-toggle" src="assets/img/icon-right.png"/>
-
-                </div>
-                <div className={`content ${className}`}>
-                    {children}
-                </div>
-            </div>
+                    )
+                }
+                renderNavRight={() => (
+                    <div className="nav-right">
+                        <div className=""
+                             onClick={() => userInfo.setUser(null)}
+                        >
+                            Logout
+                        </div>
+                    </div>
+                )}
+                renderNavLeft={() => (
+                    <div className="nav-left">
+                        Left
+                    </div>
+                )}
+            >
+                {children}
+            </DualNavLayout>
         );
     }
 }
