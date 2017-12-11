@@ -62,7 +62,7 @@
 
 
   // Transition
-  &.right-enter, &.right-leave, &.left-enter, &.left-leave {
+  &.right-enter, &.right-exit, &.left-enter, &.left-exit {
     & > .main {
       transition left 300ms;
 
@@ -72,13 +72,13 @@
       }
     }
   }
-  &.right-enter, &.right-leave {
+  &.right-enter, &.right-exit {
     & > .nav-container  > .nav {
       left: 100%;
       transition left 300ms;
     }
   }
-  &.left-enter, &.left-leave {
+  &.left-enter, &.left-exit {
     & > .nav-container  > .nav {
       left: -100%;
       transition left 300ms;

@@ -13,7 +13,7 @@ export class DualNavLayout extends RComponent {
     }
 
     makeSpace(direction, active) {
-        let enterLeave = active ? "enter" : "leave";
+        let enterLeave = active ? "enter" : "exit";
         let dom = ReactDOM.findDOMNode(this);
 
         if (!active) {
@@ -28,8 +28,8 @@ export class DualNavLayout extends RComponent {
 
         if (!active) {
             setTimeout(() => {
-                dom.classList.remove(`${direction}-leave`);
-                dom.classList.remove(`${direction}-leave-active`);
+                dom.classList.remove(`${direction}-exit`);
+                dom.classList.remove(`${direction}-exit-active`);
             }, 300);
         }
     }

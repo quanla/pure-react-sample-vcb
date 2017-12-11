@@ -19,10 +19,11 @@
     }
   }
 
-  & > .nav-container > .nav > .nav-right {
+  & > .nav-container > .nav .hier-nav {
     padding-top 54px;
     position relative;
     overflow hidden;
+    height 100%;
 
     .header {
       height: 54px;
@@ -44,12 +45,25 @@
       white-space: nowrap;
       overflow: hidden;
       text-transform: uppercase;
+
+
+      .fa-angle-left {
+        position: absolute;
+        top: 14px;
+        left: 10px;
+        font-size: 21px;
+      }
+
     }
 
     .body .list-item {
       height 45px;
-      padding-left 40px;
       position relative;
+      padding-left 9px;
+
+      &.has-icon {
+        padding-left 40px;
+      }
 
       img {
         position: absolute;
@@ -61,6 +75,13 @@
         height 100%;
         line-height 44px;
         border-bottom: 1px dotted #666;
+      }
+
+      .fa-angle-right {
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        font-size: 19px;
       }
 
       &.disabled {
