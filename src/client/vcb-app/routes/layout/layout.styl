@@ -16,7 +16,58 @@
       font-size: 15px;
       color: #144633;
       line-height: 20px;
+    }
+  }
 
+  & > .nav-container > .nav > .nav-right {
+    padding-top 54px;
+    position relative;
+    overflow hidden;
+
+    .header {
+      height: 54px;
+      line-height: 54px;
+      padding: 0 30px;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width 100%;
+      background: #FFF;
+      box-shadow: 0 0 10px 2px #D3D4D6;
+
+      color: #144633;
+      font-size: 15px;
+      font-family: Arial,Tahoma;
+      font-weight: bold;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+
+    .body .list-item {
+      height 45px;
+      padding-left 40px;
+      position relative;
+
+      img {
+        position: absolute;
+        top: 8px;
+        left: 7px;
+      }
+
+      .content {
+        height 100%;
+        line-height 44px;
+        border-bottom: 1px dotted #666;
+      }
+
+      &.disabled {
+        .content {
+          color #b1b1b1;
+        }
+      }
     }
   }
 }
