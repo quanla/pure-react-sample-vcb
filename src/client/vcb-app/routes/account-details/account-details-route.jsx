@@ -1,24 +1,21 @@
 import classnames from "classnames";
 import {RComponent} from "../../../common/r-component";
 import {Layout} from "../layout/layout";
-import {accountApi} from "../../../api/account-api";
 import {AccountChooseBox} from "./acc-choose-box";
 import {AccountDetailsBox} from "./acc-details-box";
+import {AccountQueryBox} from "./acc-query-box";
 
 export class AccountDetailsRoute extends RComponent {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            acc: null,
         };
 
-        accountApi.getAccountDetail(props.match.params.acc_no).then((acc) => this.setState({acc}));
     }
 
     render() {
         const {history} = this.props;
-        const {acc} = this.state;
 
         const {acc_no} = this.props.match.params;
 
@@ -34,19 +31,12 @@ export class AccountDetailsRoute extends RComponent {
                 />
 
                 <AccountDetailsBox
-                    acc={acc}
+                    accNo={acc_no}
                 />
 
-                <div className="box">
-                    <div className="header">
-                        <img src="assets/img/icon-thongtinnguoichuyen.png" />
-                        Chi tiết giao dịch
-                    </div>
-                </div>
+                <AccountQueryBox
 
-                <div className="controls">
-                    <button>Xem sao kê</button>
-                </div>
+                />
             </Layout>
         );
     }

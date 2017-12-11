@@ -1,11 +1,35 @@
 import classnames from "classnames";
 import {RComponent} from "../../../common/r-component";
 import {Format} from "../../../common/format";
+import {accountApi} from "../../../api/account-api";
 
 export class AccountDetailsBox extends RComponent {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            acc: null,
+        };
+
+        this.loadAccDetails(props.accNo);
+    }
+
+    async loadAccDetails(accNo) {
+        this.setState({acc: null});
+
+        let acc = await accountApi.getAccountDetail(accNo);
+
+        this.setState({acc});
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        if (nextProps.accNo != this.props.accNo) {
+            this.loadAccDetails(nextProps.accNo);
+        }
+    }
 
     render() {
-        const {acc} = this.props;
+        const {acc} = this.state;
         const lines = [
             {
                 label: "Số dư hiện tại",
@@ -41,7 +65,7 @@ export class AccountDetailsBox extends RComponent {
 
             <div className="box account-details-box">
                 <div className="header">
-                    <img src="assets/img/icon-thongtinnguoichuyen.png" />
+                    <img src="assets/img/icon-tiengui.png" />
                     Tiền gửi thanh toán
                 </div>
 
