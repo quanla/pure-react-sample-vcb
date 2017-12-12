@@ -63,7 +63,7 @@ export class AccountDetailsBox extends RComponent {
 
         return (
 
-            <div className="box account-details-box">
+            <div className="page-box account-details-box">
                 <div className="header">
                     <img src="assets/img/icon-tiengui.png" />
                     Tiền gửi thanh toán

@@ -14,21 +14,24 @@ export class Select extends RComponent {
         let {
             className, isSelected,
             displayAs = (val) => val,
-            disabled, onChange, list=[]
+            disabled, onChange, list=[],
+            placeholder
         } = this.props;
 
         let selectedIndex = Cols.indexOf(list, isSelected);
+        console.log(selectedIndex);
 
         return (
             <div className="select-wrapper">
                 <select
                     className={classnames(className)}
                     disabled={disabled}
-                    value={selectedIndex}
+                    value={selectedIndex != -1 ? selectedIndex : undefined}
                     onChange={(e) => {
                         let newIndex = +e.target.value;
                         onChange(list[newIndex], newIndex);
                     }}
+                    placeholder={placeholder}
                 >
 
                     { list && list.map((item, index) => (

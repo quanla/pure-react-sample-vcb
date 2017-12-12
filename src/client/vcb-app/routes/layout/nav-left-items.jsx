@@ -15,7 +15,13 @@ export const generateLeftItems = (history) => ({
                 {label: "Thẻ"},
             ]
         }},
-        {icon: "menu-chuyentien", label: "Chuyển tiền"},
+        {icon: "menu-chuyentien", label: "Chuyển tiền", sub: {
+            header: "Chuyển tiền",
+            items: [
+                {label: "Chuyển tiền trong Vietcombank"},
+                {label: "Chuyển tiền tới ngân hàng khác", onClick: () => history.push("/transfer-external")},
+            ]
+        }},
         {icon: "menu-thanhtoan", label: "Thanh toán"},
         {icon: "menu-tietkiemtructuyen", label: "Tiết kiệm trực tuyến"},
         {icon: "menu-tienichgiatang", label: "Tiện ích gia tăng"},

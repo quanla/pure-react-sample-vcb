@@ -6,6 +6,7 @@ import {LoginRoute} from "./routes/login/login-route";
 import {HomeRoute} from "./routes/home/home-route";
 import {AccountListRoute} from "./routes/account-list/account-list-route";
 import {AccountDetailsRoute} from "./routes/account-details/account-details-route";
+import {TransferExternalRoute} from "./routes/transfer-external/transfer-external-route";
 
 export class VcbApp extends RComponent {
 
@@ -38,6 +39,7 @@ const renderRoutes = (user) => {
                 <Route exact path="/home" component={requireAuthen(HomeRoute)}/>
                 <Route exact path="/account-list" component={requireAuthen(AccountListRoute)}/>
                 <Route exact path="/account-details/:acc_no" component={requireAuthen(AccountDetailsRoute)}/>
+                <Route exact path="/transfer-external" component={requireAuthen(TransferExternalRoute)}/>
             </Switch>
         </HashRouter>
     );

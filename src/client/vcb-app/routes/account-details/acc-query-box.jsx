@@ -8,7 +8,7 @@ export class AccountQueryBox extends RComponent {
         const {onQuery} = this.props;
 
         return (
-            <div className="acc-query-box box">
+            <div className="acc-query-box page-box">
                 <div className="header">
                     <img src="assets/img/icon-search.png" />
                     Chi tiết giao dịch
