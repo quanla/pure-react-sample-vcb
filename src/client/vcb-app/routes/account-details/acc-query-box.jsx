@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import {RComponent} from "../../../common/r-component";
-import {Select} from "../../../common/select";
+import {Select} from "../../../common/form/select/select";
 
 export class AccountQueryBox extends RComponent {
 

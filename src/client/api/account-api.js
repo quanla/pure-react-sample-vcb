@@ -42,6 +42,25 @@ const accountApi = {
                 resolve([1,2,3]);
             }, 600);
         });
+    },
+
+    getSavedReceivers() {
+
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve([
+                    {
+                        name: "Mrs. Vợ",
+                        acc_no: "9999999999999",
+                        acc_name: "Nguyen Thi Vo",
+                        bank_type: 0,
+                        bank_code: "AGRI",
+                        province: "hanoi",
+                        branch: "hanoi01",
+                    }
+                ]);
+            }, 600);
+        });
     }
 };
 

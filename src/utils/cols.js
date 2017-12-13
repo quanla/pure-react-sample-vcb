@@ -162,6 +162,9 @@ function removeDuplicates(col, by) {
 }
 
 function find(col, fn) {
+    if (col == null) {
+        return null;
+    }
     for (let i = 0; i < col.length; i++) {
         let e = col[i];
         if (fn(e)) {

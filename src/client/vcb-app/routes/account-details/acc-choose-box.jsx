@@ -1,5 +1,5 @@
 import {RComponent} from "../../../common/r-component";
-import {Select} from "../../../common/select";
+import {Select} from "../../../common/form/select/select";
 import {accountApi} from "../../../api/account-api";
 
 export class AccountChooseBox extends RComponent {
