@@ -31,26 +31,44 @@ export class TransferToBox extends RComponent {
 
 
                 <div className="body">
-                    <SearchSelect
-                        list={savedReceivers}
-                        isSelected={(acc) => account && account.acc_no == acc.acc_no}
-                        placeholder="Nhập tên/tên gợi nhớ/số tài khoản đã lưu"
-                        renderDropdownItem={(acc) => (
-                            <div className="saved-receiver-dropdown-item">
-                                <div className="acc-name">
-                                    {acc.name}
+                    <div className="form-group">
+                        <SearchSelect
+                            list={savedReceivers}
+                            isSelected={(acc) => account && account.acc_no == acc.acc_no}
+                            placeholder="Nhập tên/tên gợi nhớ/số tài khoản đã lưu"
+                            renderDropdownItem={(acc) => (
+                                <div className="saved-receiver-dropdown-item">
+                                    <div className="acc-name">
+                                        {acc.name}
+                                    </div>
+                                    <div className="">
+                                        {acc.acc_no}
+                                    </div>
                                 </div>
-                                <div className="">
-                                    {acc.acc_no}
-                                </div>
-                            </div>
-                        )}
-                        getSelectedItemText={(acc) => acc.name}
-                        onChange={(acc) => onChange(acc)}
-                        searchBy={(acc) => [acc.name, acc.acc_no, acc.acc_name]}
-                    />
+                            )}
+                            getSelectedItemText={(acc) => acc.name}
+                            onChange={(acc) => onChange(acc)}
+                            searchBy={(acc) => [acc.name, acc.acc_no, acc.acc_name]}
+                        />
+                    </div>
 
-                    <Input/>
+                    <div className="form-group">
+                        <Input
+                            placeholder="Nhập tài khoản hưởng"
+                            value={account==null ? "" : account.acc_no}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <Input
+                            placeholder="Nhập tên người hưởng"
+                            value={account==null ? "" : account.acc_name}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <Select
+                            placeholder="Chọn loại ngân hàng"
+                        />
+                    </div>
                 </div>
             </div>
         );
