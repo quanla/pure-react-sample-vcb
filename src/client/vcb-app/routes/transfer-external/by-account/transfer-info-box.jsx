@@ -21,6 +21,7 @@ export class TransferInfoBox extends RComponent {
                 <div className="body">
                     <div className="form-group money-group">
                         <MoneyInput
+                            id="aaaaa"
                             value={info && info.amount}
                             onChange={(amount) => onChange({...info, amount})}
                         />

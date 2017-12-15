@@ -3,6 +3,7 @@ import {RComponent} from "../../../../common/r-component";
 import {TransferToBox} from "./transfer-to-box";
 import {TransferFromBox} from "./transfer-from-box";
 import {TransferInfoBox} from "./transfer-info-box";
+import {transferApi} from "../../../../api/transfer-api";
 
 export class TransferExternalAccountForm extends RComponent {
 
@@ -14,6 +15,15 @@ export class TransferExternalAccountForm extends RComponent {
             toAccount: null,
             info: null,
         };
+    }
+
+    async submit() {
+
+        const {fromAccount, toAccount, info} = this.state;
+
+        transferApi.transferExternalAccount({fromAccount, toAccount, info}).then((transactionId) => {
+
+        });
     }
 
     render() {
@@ -35,7 +45,9 @@ export class TransferExternalAccountForm extends RComponent {
                 />
 
                 <div className="controls">
-                    <button>Xác nhận</button>
+                    <button
+                        onClick={() => this.submit()}
+                    >Xác nhận</button>
                 </div>
             </div>
         );
