@@ -36,13 +36,11 @@ export class Select extends RComponent {
                     }}
                     placeholder={placeholder}
                 >
-                    {placeholder != null && (
-                        <option
-                            value="placeholder"
-                        >
-                            { placeholder }
-                        </option>
-                    )}
+                    <option
+                        value="placeholder"
+                    >
+                        { placeholder || "" }
+                    </option>
                     { list && list.map((item, index) => (
                         <option
                             key={index}

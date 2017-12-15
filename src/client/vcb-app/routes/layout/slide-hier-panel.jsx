@@ -23,7 +23,7 @@ export class SlideHierPanel extends RComponent {
 
                 <TransitionGroup className={classnames("panels-container", direction)}>
                     <CSSTransition
-                        timeout={300}
+                        timeout={3000}
                         classNames="slide"
                         key={stack.length}
                     >

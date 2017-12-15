@@ -2,6 +2,7 @@ import classnames from "classnames";
 import {RComponent} from "../../../../common/r-component";
 import {TransferToBox} from "./transfer-to-box";
 import {TransferFromBox} from "./transfer-from-box";
+import {TransferInfoBox} from "./transfer-info-box";
 
 export class TransferExternalAccountForm extends RComponent {
 
@@ -32,6 +33,10 @@ export class TransferExternalAccountForm extends RComponent {
                     info={info}
                     onChange={(info) => this.setState({info})}
                 />
+
+                <div className="controls">
+                    <button>Xác nhận</button>
+                </div>
             </div>
         );
     }
