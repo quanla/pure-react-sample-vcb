@@ -27,6 +27,10 @@ export class Select extends RComponent {
                     disabled={disabled}
                     value={selectedIndex != -1 ? selectedIndex : "placeholder"}
                     onChange={(e) => {
+                        if (e.target.value == "placeholder") {
+                            onChange(null, -1);
+                            return;
+                        }
                         let newIndex = +e.target.value;
                         onChange(list[newIndex], newIndex);
                     }}

@@ -9,10 +9,12 @@ const accountApi = {
                     {
                         acc_no: "000000000000",
                         balance: 122000,
+                        currency: "vnd"
                     },
                     {
                         acc_no: "111111111111",
                         balance: 2222000,
+                        currency: "usd"
                     },
                 ] : [
                 ])
@@ -53,10 +55,10 @@ const accountApi = {
                         name: "Mrs. Vợ",
                         acc_no: "9999999999999",
                         acc_name: "Nguyen Thi Vo",
-                        bank_type: 0,
-                        bank_code: "AGRI",
-                        province: "hanoi",
-                        branch: "hanoi01",
+                        bank_type: "state-owned",
+                        bank_code: "agri",
+                        province: "hn",
+                        branch: "hn01",
                     }
                 ]);
             }, 600);

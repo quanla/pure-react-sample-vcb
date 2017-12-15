@@ -11,11 +11,12 @@ export class TransferExternalAccountForm extends RComponent {
         this.state = {
             fromAccount: null,
             toAccount: null,
+            info: null,
         };
     }
 
     render() {
-        const {fromAccount, toAccount} = this.state;
+        const {fromAccount, toAccount, info} = this.state;
         return (
             <div>
                 <TransferFromBox
@@ -26,6 +27,10 @@ export class TransferExternalAccountForm extends RComponent {
                 <TransferToBox
                     account={toAccount}
                     onChange={(account) => this.setState({toAccount: account})}
+                />
+                <TransferInfoBox
+                    info={info}
+                    onChange={(info) => this.setState({info})}
                 />
             </div>
         );
