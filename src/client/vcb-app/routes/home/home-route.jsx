@@ -30,9 +30,7 @@ export class HomeRoute extends RComponent {
                             Chuyển tiền trong Vietcombank
                         </div>
                     </li>
-                    <li className="disabled"
-                        onClick={() => history.push("/transfer-external")}
-                    >
+                    <li onClick={() => history.push("/transfer-external")}>
                         <img src="assets/img/icon-ngoaihethong.png"/>
                         <div className="text">
                             Chuyển tiền tới ngân hàng khác
