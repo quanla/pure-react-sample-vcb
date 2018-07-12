@@ -1,11 +1,12 @@
-import classnames from "classnames";
+import cln from "classnames";
 import {RComponent} from "../../../common/r-component";
 import {captcha} from "./validate-captcha";
 import {authenApi} from "../../../api/authen-api";
 import {userInfo} from "../../authen/user-info";
-const {bindDom, bindCom} = RlfDemo.RLF;
-const {required, minLength, maxLength} = RlfDemo.RLF.validates;
 
+import {createForm, basicValidators} from 'bee-form-react';
+
+const {required, minLength, maxLength} = basicValidators;
 
 export class LoginRoute extends RComponent {
 
@@ -18,20 +19,14 @@ export class LoginRoute extends RComponent {
             loading: false,
         };
 
-        this.form = bindCom({
+        this.form = createForm({
             acc_no: [required, minLength(3)],
             password: [required, minLength(3)],
             captcha: [required, minLength(5), maxLength(5), captcha],
-        }, {
-            component: this,
-            data: {
-            },
         });
 
-        this.form.addDataChangedListener(() => {
-            if (this.state.error) {
-                this.setState({error: null});
-            }
+        this.form.onChange(() => {
+            this.forceUpdate();
         });
     }
 
@@ -52,10 +47,20 @@ export class LoginRoute extends RComponent {
     render() {
         const {showErrors, error, loading} = this.state;
 
-        let checkSubmit = () => this.form.isInvalid() ? this.setState({showErrors: true}) : this.submit();
+        let fv = this.form.createView();
 
-        return bindDom(this.form)(
-            <div className={classnames("login-route", {"show-errors": showErrors})}
+        let checkSubmit = () => !fv.isValid() ? this.setState({showErrors: true}) : this.submit();
+
+        let renderInput = (placeholder) => (ifv) => (
+            <input
+                className={cln("form-control", {"has-error": ifv.hasError()})}
+                {...ifv.bind()}
+                placeholder={placeholder}
+                autoComplete="off"
+            />
+        );
+        return (
+            <div className={cln("login-route", {"show-errors": showErrors})}
                  onKeyDown={(e) => e.keyCode == 13 && checkSubmit()}
             >
                 <div className="logo box">
@@ -77,33 +82,14 @@ export class LoginRoute extends RComponent {
                     )}
 
                     <div className="form-group">
-                        <input
-                            className="form-control"
-                            lf-bind
-                            lf-path="acc_no"
-                            lf-path-state
-                            placeholder="Nhập Tên đăng nhập"
-                            autoComplete="off"
-                        />
+                        {fv.withControl("acc_no", renderInput("Nhập Tên đăng nhập"))}
                     </div>
                     <div className="form-group">
-                        <input
-                            className="form-control"
-                            lf-bind
-                            lf-path="password"
-                            lf-path-state
-                            placeholder="Nhập Mật khẩu"
-                            autoComplete="off"/>
+                        {fv.withControl("password", renderInput("Nhập Mật khẩu"))}
                     </div>
                     <div className="form-group captra">
-                        <input
-                            className="form-control"
-                            lf-bind
-                            lf-path="captcha"
-                            lf-path-state
-                            placeholder="Nhập mã kiểm tra"
-                            autoComplete="off"
-                        />
+                        {fv.withControl("captcha", renderInput("Nhập mã kiểm tra"))}
+
                         <div className="img-controls">
                             <img className="captcha" src="assets/img/captcha.png"/>
                             <img className="refresh" src="assets/img/refresh-icon.png"/>
@@ -111,7 +97,7 @@ export class LoginRoute extends RComponent {
                     </div>
                     <div className="controls">
                         <button
-                            className={classnames("btn-dangnhap", {disabled: this.form.isInvalid()})}
+                            className={cln("btn-dangnhap", {disabled: !fv.isValid()})}
                             onClick={checkSubmit}
                             disabled={loading}
                         >
